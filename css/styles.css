@@ -1,0 +1,372 @@
+/* *****************************************************************************
+********************************************************************************
+*********************************   Web Fonts  *********************************
+********************************************************************************
+***************************************************************************** */
+
+@font-face {
+  font-family: 'Abolition Regular';
+  src: url('../fonts/abolition-regular-webfont.eot');
+  src: url('../fonts/abolition-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/abolition-regular-webfont.woff') format('woff'),
+       url('../fonts/abolition-regular-webfont.ttf') format('truetype');
+}
+
+/* *****************************************************************************
+********************************************************************************
+******************************  Base Layout Styles  ***************************
+********************************************************************************
+***************************************************************************** */
+
+/* forces the padding and border into the total width and height of the elements. The * is the universal selector, and applies to all elements on the page. */
+* {
+   box-sizing: border-box;
+}
+
+body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      background: lightgrey;
+    }
+
+
+legend {
+  background: linear-gradient(0deg, white, transparent 85%),
+              linear-gradient(180deg, white, transparent 85%),
+              black;
+}
+
+
+.wrap {
+    height: calc(100vh - 117px); /* 100 % of viewport height minus the (117) 60px footer height and 57px header height */
+
+}
+
+/*  -----  Main Nav -----  */
+
+
+/* ---------- Fixed Positioning Example ------------ */
+/* Using fixed position to keep the nav at the top of the viewport regardless of where they are on the page. */
+.navbar {
+  /*  give main nav a little breathing room between headline 1 */
+
+  border-bottom: solid 1px black;
+  background: white;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  width: 100%;
+}
+
+/*  the star character gets 20px of margin-left when navigation is collapsed  */
+a.navbar-brand {
+  font-size: 1.1em;
+  margin-left: 10px;
+}
+
+
+/* background for the dropdown menu choices */
+.dropdown-menu a:hover {
+  background: #c1c1c1;
+}
+
+.dropdown-item {
+  background: linear-gradient(0deg, white, transparent 85%),
+              linear-gradient(180deg, white, transparent 85%),
+              black;
+            }
+
+.search-box {
+  width: 100%;
+  min-width: 350px;
+  max-width: 600px;
+
+}
+
+
+.search-container-parent {
+  overflow: hidden;
+  /*  lucked into creating a 3d type curved gradient;
+      later i'll use this for my nav menu div li list items background.  */
+  background: linear-gradient(0deg, black, transparent 80%),
+              linear-gradient(180deg, black, transparent 80%),
+              darkgrey;
+  margin-top: 70px;
+  margin-bottom: 30px;
+}
+
+/*  the parent search container div and the search-container input  */
+.search-container-parent .search-container {
+  width: 80%;
+  border: solid 1px black;
+  margin: 0 auto;
+  padding-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: lightgrey;
+}
+
+
+/* this is the search box */
+.search-container-parent input[type=text] {
+  width: 80%;
+  padding: 3px;
+  margin-left: 3px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 10px;
+  border: none;
+}
+
+
+/*  this is the search-icon button  */
+.search-container button {
+  float: right;
+  padding: 5px 15px;
+  margin-top: 0px;
+  margin-right: 0px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background: white;
+}
+
+
+/*  -----  image carousel -----  */
+/* set the height of the slides and give them a blue border */
+#carouselExampleIndicators {
+  margin: 10px auto;
+  width: 100%;
+  max-width: 700px;
+  height: 200px;
+  border: 2px double lime;
+}
+
+.slide-show-format {
+  height: 200px;
+  width: 100%;
+}
+
+
+
+#ingredientHeader {
+  margin: 10px 0 0 10px;
+}
+
+
+
+/* form elements */
+
+.fieldset {
+  font-size: .7em;
+}
+
+legend {
+  font-size: 1.9em;
+  text-align: center;
+  padding: 10px 5px;
+}
+
+#checkbox_group {
+  border: #c1c1c1 solid 1px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+  margin-top: 0;
+  padding: 10px 0;
+  background: linear-gradient(0deg, white, transparent 85%),
+              linear-gradient(180deg, white, transparent 85%),
+              black;
+}
+
+/*  styling for the checkbox div so that each checkbox and label are on their own line. */
+.checkbox_div {
+  display: block;
+  align-self: center;
+}
+
+/* next we will target the label elements that are adjacent siblings of and follow the
+   checkboxes on the html forms page using the tag element and type attribute
+   along with the :checked pseudo-class along with the adjacent sibling [+]
+   selector.  */
+  input[type="checkbox"]:checked + label {
+    font-weight: bold;
+  }
+
+label.checkbox {
+  min-width: 90px;
+  border-style: inset;
+  border: black .5px solid;
+  text-align: left;
+  margin-left: 5px;
+  margin-right: 2px;
+  padding-left: 4px;
+}
+
+
+/* textbox for ingredient quantity */
+.text_input {
+  max-width: 84px;
+  padding-left: 2px;
+
+}
+
+.select-menu {
+  padding: 3px;
+  width: 95px;
+  font-size: .8em;
+}
+
+.addIngredientBTN {
+  margin: 20px auto;
+}
+
+/*  placement of the overall nutrient totals for the entire meal.  */
+.results {
+  font-size: .7em;
+  color: red;
+  margin: 25px 0 25px 10px;
+}
+
+
+.detailedHeadline {
+  font-size: 1.7em;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: 10px;
+  background: linear-gradient(0deg, white, transparent 85%),
+              linear-gradient(180deg, white, transparent 85%),
+              black;
+              padding: 10px 5px;
+
+}
+
+.mealResultHeadline {
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 15px;
+  background: linear-gradient(0deg, white, transparent 85%),
+              linear-gradient(180deg, white, transparent 85%),
+              black;
+              padding: 10px 5px;
+}
+
+.mealTotalBackground {
+  display: none;
+  margin: 5px;
+  /*  lucked into creating a 3d type curved gradient;
+      later i'll use this for my nav menu div li list items background.  */
+  background: linear-gradient(0deg, black, transparent 80%),
+              linear-gradient(180deg, black, transparent 80%),
+              darkgrey;
+  border: solid 1px grey;
+
+}
+
+/*  placement of the individual ingredient nutrient totals  */
+.resultsDetailed {
+  display: none;
+  font-size: .65em;
+  color: blue;
+  margin: 20px 5px;
+  background: linear-gradient(0deg, white, transparent 85%),
+              linear-gradient(180deg, white, transparent 85%),
+              black;
+  border: 1px solid black;
+  padding-left: 10px;
+
+}
+
+
+div.bottom-margin {
+  height: 1px;
+  margin-bottom: 5px;
+
+}
+
+/*  ------   Main Footer ---------- */
+.main-footer {  /* footer elements expand to 100% page width by default. */
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+  width: 100%;
+  text-align: center;
+  height: 60px;
+  padding-top: 20px;
+  border-top: 2px solid black;
+  /*  lucked into creating a 3d type curved gradient;
+      later i'll use this for my nav menu div li list items background.  */
+  background: linear-gradient(0deg, black, transparent 80%),
+              linear-gradient(180deg, black, transparent 80%),
+              darkgrey;
+}
+
+.secondary-footer {
+  width: 100%;
+  background: grey;
+  padding: 20px 20px 20px 20px; /* this gives the paragraph elements some breathing room  */
+  margin:  20px 0;
+  margin-bottom: 60px;  /* this gives some room for the last link 'privacy' to appear when fully scrolled down after generating ingredient results.  */
+  border-top: solid black 2px;
+  background: linear-gradient(0deg, white, transparent 85%),
+              linear-gradient(180deg, white, transparent 85%),
+              black;
+}
+
+h4 {
+  text-shadow: 2px 2px black;
+}
+
+
+p.carouselImage {
+  width: 90%;
+  max-width: 300px;
+  text-align: center;
+  font-size: 1.2em;
+  color: white;
+  text-shadow: 2px 2px black;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+p {
+  width: 90%;
+  max-width: 300px;
+  text-align: center;
+  font-size: .8em;
+  color: black;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin: 0 auto;
+}
+
+/*  links in the footer paragraphs  */
+p > a {
+  text-align: center;
+  font-size: .7em;
+  color: red;
+  margin: 0 auto;
+}
+
+/* to-top link in the persistent sticky footer  */
+.to-top {
+  background: red url('../img/arrow.svg') no-repeat center;
+  background-size: 70%;
+  transform: rotate(180deg);  /*  this will rotate it 180 degrees. */
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  height: 35px;
+  width: 35px;
+  padding: 0 10px;
+  margin: 10px 40px 0px 0px;
+  border-radius: 50%;
+  border: white 1px solid;
+}

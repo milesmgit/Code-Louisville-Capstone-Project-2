@@ -1,0 +1,233 @@
+
+<!-- ================================================================================================================================================================================
+
+     ================================================================================================================================================================================ -->
+
+
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta name="viewport" content="width=device-width", initial-scale="1.0", shrink-to-fit="no">
+    <title>Web Design</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">  <!--I list this css file second in case I need to override the normalize.css file, as the last file listed takes precedence in the css stack -->
+  </head>
+
+  <body>
+
+    <header>
+      <!-- Begin main-navigation:  styled using bootstrap-4   took out 'navbar-light' and 'bg-dark', so I could custom style links and background -->
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand order-1" href="#">Meal &lrhar; Converter</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Top 5 Foods Per Vitamin Category
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Vitamin A</a>
+                <a class="dropdown-item" href="#">Vitamin B6</a>
+                <a class="dropdown-item" href="#">Vitamin B12</a>
+                <a class="dropdown-item" href="#">Vitamin C</a>
+                <a class="dropdown-item" href="#">Vitamin D</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Top Sources of Protein
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="index.html?#entertainment">Chicken</a>
+                <a class="dropdown-item" href="#">Beef</a>
+                <a class="dropdown-item" href="#">Pork</a>
+                <a class="dropdown-item" href="#">Fish</a>
+                <a class="dropdown-item" href="#">Vegetables</a>
+                <a class="dropdown-item" href="#">Fruits</a>
+                <a class="dropdown-item" href="#">Eggs</a>
+                <a class="dropdown-item" href="#">Dairy</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Healthy Fats
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="index.html?#sports">Nuts</a>
+                <a class="dropdown-item" href="#">Oils</a>
+                <a class="dropdown-item" href="#">Fish</a>
+                <a class="dropdown-item" href="#">Vegetables</a>
+                <a class="dropdown-item" href="#">Fruits</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>  <!-- end main nav -->
+
+    </header>
+
+
+
+<div class="wrap">
+
+    <!-- add search box with search icon using the ajax link:
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <div class="search-container-parent">
+     <div class="search-container">
+       <form>
+         <input type="text" placeholder="Search.." name="search">
+         <button type="submit"><i class="fa fa-search"></i></button>
+       </form>
+     </div>
+    </div>
+
+    <!-- begin image carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <a href="https://www.oliveoiltimes.com/olive-oil-health-news/olive-oil-better-than-medication-for-heart-disease/20359" target="_blank"><img class="d-block w-100 slide-show-format" src="img/oil.jpeg" alt="First slide"></a>
+          <!-- we use the .d-none class to remove the captions initially,
+               then we bring them back for medium viewports and larger using the .d-md-block class -->
+          <div class="carousel-caption d-none d-md-block">
+            <h4>Olive Oil is an Excellent Source of Healthy Fat!</h4>
+            <p class="carouselImage">'Researchers report...reverse arteriosclerosis in carotid arteries in just one year.'</p>
+          </div>
+        </div>  <!-- end carousel-item active -->
+        <div class="carousel-item">
+          <a href="https://www.msn.com/en-us/foodanddrink/restaurantsandnews/why-you-should-think-twice-before-buying-grocery-store-honey/ar-BBJ2x8S?li=BBnb7Kw" target="_blank"><img class="d-block w-100 slide-show-format" src="img/honey.jpeg" alt="Second slide"></a>
+          <div class="carousel-caption d-none d-md-block">
+            <h4>Stores see increase in rogue faux-honey!</h4>
+            <p class="carouselImage">'Ultra-Filtering process covers country of origin's tracks'</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <a href="https://www.msn.com/en-us/foodanddrink/tipsandtricks/top-chefs-reveal-their-secrets-for-the-perfect-steak/ss-BBIMRfr?li=BBnb7Kw" target="_blank"><img class="d-block w-100 slide-show-format" src="img/steak.jpeg" alt="Third slide"></a>
+          <div class="carousel-caption d-none d-md-block">
+            <h4>Secrets to a perfect steak!</h4>
+            <p class="carouselImage">'It's not a secret any longer'</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <a href="#" target="_blank"><img class="d-block w-100 slide-show-format" src="img/matt.jpg" alt="Fourth slide"></a>
+          <div class="carousel-caption d-none d-md-block">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>  <!-- end carousel inner -->
+
+    </div>  <!-- end image carousel -->
+
+
+    <fieldset class="fieldset">
+      <legend>Build-A-Meal Nutrient Calculator</legend>
+      <label id="ingredientHeader">Ingredients:</label>
+      <div id="checkbox_group">
+        <div class="checkbox_div">
+          <input type="checkbox" id="spinach" value="ingredients_spinach" name="spinach"><label class="checkbox" for="spinach">Spinach:</label>
+          <input type="text" class="text_input" id="spinach_textbox" placeholder="Enter Quantity">
+          <select class="select-menu" id="select-menu-spinach" name="unit_measurement">  <!--Begin Select Menu -->
+            <optgroup label="Unit Measurement"> <!-- the optgroup element with the attribute "label" provides headings to the option elements in the dropdown menu list -->
+              <option value="grams">Gram(s)</option>
+              <option value="ounces">Ounce(s)</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="checkbox_div">
+          <input type="checkbox" id="carrot" value="ingredients_carrot" name="carrot"><label class="checkbox" for="carrot">Carrots:</label>
+          <input type="text" class="text_input" id="carrot_textbox" placeholder="Enter Quantity">
+          <select class="select-menu" id="select-menu-carrot" name="unit_measurement">  <!--Begin Select Menu -->
+            <optgroup label="Unit Measurement"> <!-- the optgroup element with the attribute "label" provides headings to the option elements in the dropdown menu list -->
+              <option value="grams">Gram(s)</option>
+              <option value="ounces">Ounce(s)</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="checkbox_div">
+          <input type="checkbox" id="milk" value="ingredients_milk" name="milk"><label class="checkbox" for="milk">Milk:</label>
+          <input type="text" class="text_input" id="milk_textbox" placeholder="Enter Quantity">
+          <select class="select-menu" id="select-menu-milk" name="unit_measurement">  <!--Begin Select Menu -->
+            <optgroup label="Unit Measurement"> <!-- the optgroup element with the attribute "label" provides headings to the option elements in the dropdown menu list -->
+              <option value="milliliters">Milliliter(s)</option>
+              <option value="fluid ounces">Fluid Ounce(s)</option>
+            </optgroup>
+          </select>
+        </div>
+        <button class="addIngredientBTN" id="addIngredientBTN" type="button">Create Meal from These Ingredient Quantities</button>
+      </div> <!-- end checkbox_group div -->
+    </fieldset>
+
+
+    <div class="mealResultHeadline" id="mealResultHeadline">
+      <!-- placeholder for Meal Nutrient Total Headline -->
+    </div>  <!-- end meal total nutrient results  headline div -->
+
+    <div class="mealTotalBackground" id="mealTotalBackground">
+
+      <div class="results" id="resultsDivA">
+        <!--  placeholder for Meal Nutrient Total Results  -->
+      </div>
+
+      <div class="results" id="resultsDivB">
+       <!--  placeholder for Meal Nutrient Total Results  -->
+      </div>
+    </div>  <!-- end meal nutrient total background div -->
+
+
+    <div class="resultsDetailed" id="resultsDetailed">
+      <!--  placeholder for resultsDetailed  -->
+    </div>
+
+
+    <footer class="secondary-footer">
+      <p>&copy; 2018 Matthew Glenn Miles</p>
+      <p><a href="#">Legal</a></p>
+      <p><a href="#">Careers</a></p>
+      <p><a href="#">About</a></p>
+      <p><a href="#">Contact Us</a></p>
+      <p><a href="#">Privacy</a></p>
+    </footer>
+
+    <div class="bottom-margin">
+      <!-- bottomMarginDiv -->
+    </div>
+
+    </div> <!-- end .wrap div  -->
+
+
+    <!-- sticky footer: fixed position-->
+    <footer class="main-footer">
+    <a href='#top' title="TOP" class='to-top'></a>
+    </footer>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <script src="js/scripts.js"></script>
+
+  </body>
+
+</html>
