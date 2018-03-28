@@ -12,4 +12,4 @@ License:  Anyone may use this code for instructional purposes.
 
 Matt Miles 
 
-email:  milesm427@gmai.com
+email:  milesm427@gmail.com
