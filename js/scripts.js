@@ -43,8 +43,6 @@ var spinach_textbox = document.querySelector("#spinach_textbox");
 var carrot_textbox = document.querySelector("#carrot_textbox");
 var milk_textbox = document.querySelector("#milk_textbox");
 
-// variable selecting the div to hold detailed results of each nutrient ingredient.
-var resultsDiv2 = document.querySelector('#resultsDetailed');
 
 // button to hold event handler and test for each checkbox's checked state.
 
@@ -54,10 +52,8 @@ var dropdown_menu_carrot = document.querySelector("#select-menu-carrot");
 var dropdown_menu_milk = document.querySelector("#select-menu-milk");// event handler with event listener for button click:  purpose of script is to add ingredients to a sample meal.
 
 
-
+// headline and base element for building the detailed results list.
 var messageDetailedPrint = '<h1 class="detailedHeadline">Detailed Ingredient Totals</h1>';
-
-
 
 function quantityCalc(ingredients, textbox) {
   // converting grams to ounces if dropdown_menu is set to grams:  1 gram = .03527396 ounces
@@ -85,6 +81,7 @@ function quantityCalc(ingredients, textbox) {
 }
 
 function printOut(ingredients, modifiedVitaminString, ingredientsModifiedVitaminX, ingredientsVitaminX, ingredientsQuantity) {
+
   var message = "";
   message += ingredients.ingredient + ": " + modifiedVitaminString + " = " + ingredientsModifiedVitaminX;
   message += "%<br>" + "[Base USRDA Nutrient Value Per Ounce: " + ingredientsVitaminX + "% * ";
@@ -92,9 +89,12 @@ function printOut(ingredients, modifiedVitaminString, ingredientsModifiedVitamin
   return message;
 }
 
+// variable selecting the div to hold detailed results of each nutrient ingredient.
+var resultsDiv2 = document.getElementById('resultsDetailed');
 
 // creating functions to calculate the various nutrient values.
   function calcNutrientX(ingredients) {
+
     ingredients.modified_vitamin_A = (ingredients.vitamin_A * ingredients.quantity);
     // truncating results to 2 decimal places
     ingredients.modified_vitamin_A =  Math.round((ingredients.modified_vitamin_A + 0.00001) * 100) / 100;
@@ -106,16 +106,17 @@ function printOut(ingredients, modifiedVitaminString, ingredientsModifiedVitamin
     messageDetailedPrint += printOut(ingredients, "Modified Vitamin A", ingredients.modified_vitamin_A, ingredients.vitamin_A, ingredients.quantity);
     messageDetailedPrint += printOut(ingredients, "Modified Vitamin B", ingredients.modified_vitamin_B, ingredients.vitamin_B, ingredients.quantity);
 
-
     resultsDiv2.innerHTML = messageDetailedPrint;
     // push the modified ingredient to the sampleMeal array.
     sampleMeal.push(ingredients);
   }
 
 
+
 addIngredientButton.addEventListener('click', () => {
   sampleMeal = [];
-
+  messageDetailedPrint = '';
+  resultsDiv2.innerHTML = '';
   if (spinachBox.checked === true && spinach_textbox.value > 0) {
     quantityCalc(ingredients[0], spinach_textbox);
     calcNutrientX(ingredients[0]);
@@ -131,60 +132,73 @@ addIngredientButton.addEventListener('click', () => {
     calcNutrientX(ingredients[2]);
   }  // end event listener function for create meal button.
 
+  // at the end of the 'if' checkbox.checked condition, build the resultsDiv2.innerHTML to the page.
+  // This info will consist of the detailed invividual ingredient nutrients and their base and modified USRDA values.
+  resultsDiv2.style.display = "block";
 
-// at the end of the 'if' checkbox.checked condition, build the resultsDiv2.innerHTML to the page.
-// This info will consist of the detailed invividual ingredient nutrients and their base and modified USRDA values.
-resultsDiv2.style.display = "block";
-
-// this section will take the sampleMeal[array] and process the total meal results.
-var resultsDivA = document.querySelector('#resultsDivA');
-var resultsDivB = document.querySelector('#resultsDivB');
+  // this section will take the sampleMeal[array] and process the total meal results.
+  var resultsDivA = document.querySelector('#resultsDivA');
+  var resultsDivB = document.querySelector('#resultsDivB');
 
 
-  var resultsA = 0;
-  var resultsB = 0;
-  for (var i = 0; i < sampleMeal.length; i += 1) {
-    // Vitamin A results
-    resultsA += sampleMeal[i].modified_vitamin_A;
-    console.log(sampleMeal[i].modified_vitamin_A);
+    var resultsA = 0;
+    var resultsB = 0;
+    for (var i = 0; i < sampleMeal.length; i += 1) {
+      // Vitamin A results
+      resultsA += sampleMeal[i].modified_vitamin_A;
+      console.log(sampleMeal[i].modified_vitamin_A);
 
-    // Vitamin B results
-    resultsB += sampleMeal[i].modified_vitamin_B;
-    console.log(sampleMeal[i].modified_vitamin_B);
-    // continue to add all of the ingredients.
-  }
+      // Vitamin B results
+      resultsB += sampleMeal[i].modified_vitamin_B;
+      console.log(sampleMeal[i].modified_vitamin_B);
+      // continue to add all of the ingredients.
+    }
 
-  //  truncating values to 2 decimal places for accumulated and modified results
-  resultsA = Math.round((resultsA + 0.00001) * 100) / 100;
-  resultsB = Math.round((resultsB + 0.00001) * 100) / 100;
-  // setting var for mealResultHeadline div, so that I can place headline there on meal generation results
-  var mealResultHeadline = document.querySelector("#mealResultHeadline");
-  var mealTotalBackground = document.querySelector("#mealTotalBackground");
-  mealTotalBackground.style.display = "block";
-  // setting variables for messages, and will style them green if values are >= 100% USRDA
-  mealResultHeadline.innerHTML  = '<h1 class="mealResultHeadline">Meal Nutrient Totals</h1>';
+    //  truncating values to 2 decimal places for accumulated and modified results
+    resultsA = Math.round((resultsA + 0.00001) * 100) / 100;
+    resultsB = Math.round((resultsB + 0.00001) * 100) / 100;
+    // setting var for mealResultHeadline div, so that I can place headline there on meal generation results
+    var mealResultHeadline = document.querySelector("#mealResultHeadline");
+    var mealTotalBackground = document.querySelector("#mealTotalBackground");
+    mealTotalBackground.style.display = "block";
+    // setting variables for messages, and will style them green if values are >= 100% USRDA
+    mealResultHeadline.innerHTML  = '<h1 class="mealResultHeadline">Meal Nutrient Totals</h1>';
 
-  var aResults = "";
-  var bResults = "";
+    var aResults = "";
+    var bResults = "";
 
-  aResults += "Your meal satisfies " + resultsA + "% of the USRDA for Vitamin A.<br>";
+    aResults += "Your meal satisfies " + resultsA + "% of the USRDA for Vitamin A.<br>";
 
-  bResults += "Your meal satisfies " + resultsB + "% of the USRDA for Vitamin B.<br>";
-
+    bResults += "Your meal satisfies " + resultsB + "% of the USRDA for Vitamin B.<br>";
 
 
 
-  //  set the innerHTML property of the 'results'  div to the 'message' variable
-  resultsDivA.innerHTML = aResults;
-  if (resultsA >= 100) {
-  resultsDivA.style.color = "yellow";
-  resultsDivA.innerHTML += resultsA + '% is cause for concern as Vitamin A can build up in the body over time; too much Vitamin A can poison the human system!';
-  }
-  resultsDivB.innerHTML = bResults;
-  if (resultsB >= 100) {
-    resultsDivB.style.color = "lime";
-  }
-  // continue to add a div for each nutrient, and a condition for >= 100 to style green.
+
+    //  set the innerHTML property of the 'results'  div to the 'message' variable
+    resultsDivA.innerHTML = aResults;
+    if (resultsA >= 100) {
+      resultsDivA.style.color = "yellow";
+      resultsDivA.innerHTML += resultsA + '% is cause for concern as Vitamin A can build up in the body over time; too much Vitamin A can poison the human system!';
+    }
+    else if (resultsA < 100) {
+      resultsDivA.style.color = "red";
+    }
+    else if (resultsA = 100) {
+      resultsDivA.style.color = "lime";
+    }
+
+    resultsDivB.innerHTML = bResults;
+    if (resultsB >= 100) {
+      resultsDivB.style.color = "yellow";
+      resultsDivB.innerHTML += resultsB + '% is cause for concern as excess Vitamin B can poison the human system!';
+    }
+    else if (resultsB < 100) {
+      resultsDivB.style.color = "red";
+    }
+    else if (resultsB = 100) {
+      resultsDivB.style.color = "lime";
+    }
+    // continue to add a div for each nutrient, and a condition for >= 100 to style green.
 
 
 });  /*  end of event listener/handler for addIngredientButton click  */
