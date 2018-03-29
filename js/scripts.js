@@ -115,8 +115,9 @@ var resultsDiv2 = document.getElementById('resultsDetailed');
 
 addIngredientButton.addEventListener('click', () => {
   sampleMeal = [];
-  messageDetailedPrint = '';
   resultsDiv2.innerHTML = '';
+  messageDetailedPrint = '';
+  messageDetailedPrint = '<h1 class="detailedHeadline">Detailed Ingredient Totals</h1>';
   if (spinachBox.checked === true && spinach_textbox.value > 0) {
     quantityCalc(ingredients[0], spinach_textbox);
     calcNutrientX(ingredients[0]);
