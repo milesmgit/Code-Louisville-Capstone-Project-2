@@ -86,7 +86,7 @@ function quantityCalc(ingredients, textbox) {
 
 function printOut(ingredients, modifiedVitaminString, ingredientsModifiedVitaminX, ingredientsVitaminX, ingredientsQuantity) {
   var message = "";
-  message += ingredients.ingredient + modifiedVitaminString + " = " + ingredientsModifiedVitaminX;
+  message += ingredients.ingredient + ": " + modifiedVitaminString + " = " + ingredientsModifiedVitaminX;
   message += "%<br>" + "[Base USRDA Nutrient Value Per Ounce: " + ingredientsVitaminX + "% * ";
   message += ingredientsQuantity + " Ounce(s)]<br><br>";
   return message;
